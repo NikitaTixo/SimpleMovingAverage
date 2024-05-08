@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/result.dir/src/simpleMovingAverage_test.cpp.o -o result 
