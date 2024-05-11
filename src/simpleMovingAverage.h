@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <random>
+#include <chrono>
 
 template <typename T>
 std::vector<T> countSMA(std::vector<T> original, int window)
@@ -13,7 +15,7 @@ std::vector<T> countSMA(std::vector<T> original, int window)
             sum += original[j];
         }
 
-        sma.push_back(sum / window);
+        sma.push_back(sum / static_cast<T>(window));
     }
 
     return sma;
