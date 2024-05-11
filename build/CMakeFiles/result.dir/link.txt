@@ -1,1 +1,1 @@
-/usr/bin/c++ -rdynamic CMakeFiles/result.dir/src/simpleMovingAverage_test.cpp.o -o result 
+/usr/bin/c++  -fopenmp -O2 -rdynamic CMakeFiles/result.dir/src/simpleMovingAverage_test.cpp.o -o result  -lgomp -Wl,-Bstatic -lpthread -Wl,-Bdynamic 

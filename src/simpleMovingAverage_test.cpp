@@ -12,9 +12,7 @@ void generateInputVector(std::vector<float>& inputVector)
     std::uniform_real_distribution<float> dis(minValue, maxValue);
 
     for (int i = 0; i < inputVectorSize; i++)
-    {
         inputVector.push_back(dis(gen));
-    }
 }
 
 void generateInputVector(std::vector<double>& inputVector)
@@ -24,9 +22,7 @@ void generateInputVector(std::vector<double>& inputVector)
     std::uniform_real_distribution<double> dis(minValue, maxValue);
 
     for (int i = 0; i < inputVectorSize; i++)
-    {
         inputVector.push_back(dis(gen));
-    }
 }
 
 template <typename T>
@@ -42,9 +38,7 @@ bool testOutputData(std::vector<T>& inputVector, std::vector<T>& outputVector, i
         T sum = 0;
         
         for (int j = 0; j < window; j++)
-        {
             sum += inputVector[position + j];
-        }
 
         if (sum / static_cast<T>(window) != outputVector[position])
             return false;
@@ -66,7 +60,9 @@ int main()
         generateInputVector(inputDataFloat);
 
         auto start = std::chrono::steady_clock::now();
+
         outputDataFloat = countSMA(inputDataFloat, window);
+
         auto end = std::chrono::steady_clock::now();
         std::chrono::duration<double> elapsedSeconds = end - start;
         
@@ -93,7 +89,9 @@ int main()
         generateInputVector(inputDataDouble);
 
         auto start = std::chrono::steady_clock::now();
+
         outputDataDouble = countSMA(inputDataDouble, window);
+        
         auto end = std::chrono::steady_clock::now();
         std::chrono::duration<double> elapsedSeconds = end - start;
         
