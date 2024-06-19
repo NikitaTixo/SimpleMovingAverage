@@ -5,21 +5,21 @@
 #include <omp.h>
 
 template <typename T>
-std::vector<T> countSMA(std::vector<T> original, int window)
+inline std::vector<T> countSMA(std::vector<T> original, int window)
 {
-    std::vector<T> sma;
-    sma.resize(original.size() - window);
+    std::vector<T> sma(original.size() - window);
 
-    #pragma omp parallel for num_threads(32)
-    for (int i = window-1; i < original.size(); i++)
+    #pragma omp parallel for num_threads(16)
+    for (int i = 0; i < original.size() - window; i++)
     {
         T sum = 0;
-        
-        for (int j = i - window + 1; j <= i; j++)
+
+        for (int j = i; j < i + window; j++)
             sum += original[j];
 
-        sma[i-window+1] = sum / static_cast<T>(window);
+        sma[i] = sum / static_cast<T>(window);
     }
 
     return sma;
 }
+

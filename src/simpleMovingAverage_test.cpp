@@ -52,7 +52,7 @@ int main()
 
     std::cout << "--------Float Test--------" << std::endl;
 
-    for (int window = 4; window <= 128; window *=2)
+    for (int window = 4; window <= 128; window *= 2)
     {
         std::vector<float> inputDataFloat;
         std::vector<float> outputDataFloat;
