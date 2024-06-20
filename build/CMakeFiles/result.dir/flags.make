@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS =  -fopenmp -O2 -fopenmp
+CXX_FLAGS =  -O2 -fopenmp
 

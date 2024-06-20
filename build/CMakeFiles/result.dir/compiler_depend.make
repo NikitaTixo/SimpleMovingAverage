@@ -231,8 +231,7 @@ CMakeFiles/result.dir/src/simpleMovingAverage_test.cpp.o: ../src/simpleMovingAve
   /usr/include/c++/11/chrono \
   /usr/include/c++/11/ratio \
   /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/omp.h
+  /usr/include/c++/11/bits/parse_numbers.h
 
 
 /usr/include/c++/11/bits/parse_numbers.h:
@@ -364,8 +363,6 @@ CMakeFiles/result.dir/src/simpleMovingAverage_test.cpp.o: ../src/simpleMovingAve
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/omp.h:
 
 /usr/include/stdlib.h:
 

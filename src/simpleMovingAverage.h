@@ -2,24 +2,23 @@
 #include <vector>
 #include <random>
 #include <chrono>
-#include <omp.h>
 
 template <typename T>
-inline std::vector<T> countSMA(std::vector<T> original, int window)
+std::vector<T> countSMA(std::vector<T> original, int window)
 {
-    std::vector<T> sma(original.size() - window);
+    std::vector<T> sma;
+    T sum = 0;
 
-    #pragma omp parallel for num_threads(16)
-    for (int i = 0; i < original.size() - window; i++)
+    for (int i = 0; i < original.size(); i++)
     {
-        T sum = 0;
+        sum += original[i];
 
-        for (int j = i; j < i + window; j++)
-            sum += original[j];
-
-        sma[i] = sum / static_cast<T>(window);
+        if (i >= window-1)
+        {
+            sma.push_back(sum / static_cast<T>(window));
+            sum -= original[i - (window - 1)];
+        }
     }
-
     return sma;
 }
 

@@ -188,5 +188,4 @@ CMakeFiles/result.dir/src/simpleMovingAverage_test.cpp.o: \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h /usr/include/c++/11/chrono \
  /usr/include/c++/11/ratio /usr/include/c++/11/ctime \
- /usr/include/c++/11/bits/parse_numbers.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/omp.h
+ /usr/include/c++/11/bits/parse_numbers.h

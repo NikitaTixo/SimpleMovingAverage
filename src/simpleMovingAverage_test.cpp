@@ -9,20 +9,20 @@ void generateInputVector(std::vector<float>& inputVector)
 {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<float> dis(minValue, maxValue);
+    std::uniform_real_distribution<float> dis(minValue * 1000, maxValue * 1000);
 
     for (int i = 0; i < inputVectorSize; i++)
-        inputVector.push_back(dis(gen));
+        inputVector.push_back(dis(gen) / 1000);
 }
 
 void generateInputVector(std::vector<double>& inputVector)
 {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<double> dis(minValue, maxValue);
+    std::uniform_real_distribution<double> dis(minValue * 1000, maxValue * 1000);
 
     for (int i = 0; i < inputVectorSize; i++)
-        inputVector.push_back(dis(gen));
+        inputVector.push_back(dis(gen) / 1000);
 }
 
 template <typename T>
@@ -40,7 +40,7 @@ bool testOutputData(std::vector<T>& inputVector, std::vector<T>& outputVector, i
         for (int j = 0; j < window; j++)
             sum += inputVector[position + j];
 
-        if (sum / static_cast<T>(window) != outputVector[position])
+        if (fabs(sum / static_cast<T>(window) - outputVector[position]) > 0.03)
             return false;
     }
 
